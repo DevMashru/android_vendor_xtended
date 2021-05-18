@@ -613,7 +613,11 @@ function xtendedrebase() {
 }
 
 function mka() {
-    m -j "$@"
+    if [ "$1" = "official" ]; then
+        m -j target-files-package otatools
+    else
+        m -j "$@"
+    fi
 }
 
 function cmka() {
